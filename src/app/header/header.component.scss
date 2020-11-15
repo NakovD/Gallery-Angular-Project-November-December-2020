@@ -1,0 +1,39 @@
+.header-one {
+    background-color: #349adb;
+    display: flex;
+    justify-content: center;
+
+    > h1 {
+        align-self: center;
+    }
+}
+
+.img-container {
+    width: 100px;
+    margin-right: 1em;
+    
+    > img {
+        width: 100%;
+        color: black;
+    }
+}
+
+header > nav {
+    background-color: #2c8ac7;
+
+    > ul {
+        width: 60%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+
+        > li {
+            padding: 0.75em;
+
+            &:hover {
+                background-color: #349adb;
+                color: rgba(#fff, 0.5);
+            }
+        }
+    }
+}

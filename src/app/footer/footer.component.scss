@@ -1,0 +1,23 @@
+footer {
+    background-color: #313C3F;
+    padding: .5em 0;
+    color: rgba(#fff, 0.8);
+    display: flex;
+    flex-direction: column;
+
+    > small {
+        width: 80%;
+        margin: .5em auto;
+    }
+}
+
+a:first-child {
+    margin-left: 1em;
+}
+a {
+    margin-right: 1em;
+
+    &:hover {
+        color: rgb(44,138,199);
+    }
+}
