@@ -1,0 +1,156 @@
+.add-image-container {
+    background-image: url("https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F150527073820-richard-prince-frieze.jpg");
+}
+
+.add-image-form {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #969696;
+
+    > form {
+        margin-top: 2em;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+
+        > input,
+        label,
+        textarea,
+        h3,
+        p {
+            width: 90%;
+            display: block;
+            margin: 0 auto 2em;
+            background-color: rgba(#fff, 0.3);
+        }
+
+        > input,
+        textarea {
+            padding: 0.5em;
+            border-radius: 2px;
+        }
+        > textarea {
+            resize: none;
+            height: 100px;
+        }
+        > h3 {
+            background-color: transparent;
+        }
+        > label, p {
+            background-color: transparent;
+            margin: 0 auto;
+        }
+
+        & label[for="private"] {
+            margin: 0 0 2em 1em;
+        }
+
+        & i {
+            vertical-align: middle;
+            color: rgba(black, 0.3);
+            position: relative;
+
+            > .note {
+                position: absolute;
+                padding: 1em;
+                text-align: center;
+                bottom: 150%;
+                left: -500%;
+                min-width: 200px;
+                background-color: rgba(#fff, 0.9);
+                display: none;
+            }
+        }
+
+        & i:hover > .note {
+            display: block;
+        }
+
+        & input[type="checkbox"] {
+            margin: 0 1.5em;
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.img-container-preview {
+    padding: 2em;
+    width: 70%;
+    min-width: 70%;
+    background-color: rgba(#70658a, 0.3);
+
+    > img {
+        width: 100%;
+        max-height: 600px;
+        border-radius: 20px;
+        opacity: 0.5;
+    }
+
+    & p {
+        margin-bottom: 1em;
+    }
+}
+
+.btn {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #8e44ad;
+    border-radius: 0.6em;
+    color: #8e44ad;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        outline: 0;
+    }
+}
+
+.fifth {
+    // border-color: $purple;
+    // border: 0;
+    border-radius: 0;
+    // color: $purple;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 150ms ease-in-out;
+
+    &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 100%;
+        background: #8e44ad;
+        z-index: -1;
+        transition: width 500ms ease-in-out;
+    }
+
+    &:hover {
+        color: #fff;
+        &:after {
+            width: 110%;
+        }
+    }
+}

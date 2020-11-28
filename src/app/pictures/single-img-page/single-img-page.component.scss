@@ -1,0 +1,125 @@
+
+.main-container {
+    background-image: linear-gradient(-45deg, #009be3, #c93684, #ee7752, #e73c7e, #23a6d5);
+    background-size: 5000%;
+    animation: gradient 40s ease infinite;
+    padding: 3em 0;
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}
+
+.picture-info-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(#fff, 0.3);
+    border-radius: 10px;
+}
+
+.img-container {
+    width: 100%;
+    margin-bottom: 2em;
+    padding: 1em;
+
+    > img {
+        border: 10px double black;
+        max-width: 100%;
+        max-height: 600px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.picture-details {
+    width: 90%;
+    padding: 0 3em;
+    display: flex;
+    flex-wrap: wrap;
+
+    > p {
+        width: 45%;
+        margin-bottom: 1.5em;
+    }
+
+    > .someth-container {
+        width: 100%;
+        // display: flex;
+        margin-bottom: 1em;
+        > .createdAt,
+        .likes,
+        .createdBy {
+            width: 30%;
+            margin-bottom: .75em;
+        }
+    }
+
+    > p:nth-child(2n) {
+        flex-grow: 1;
+        margin-right: 2em;
+    }
+
+    > p:nth-child(3n) {
+        flex-shrink: 1;
+
+        > span {
+            display: inline-block;
+            background-color: #cccccc;
+            margin: 0.25em 0.5em 0.25em 0;
+            padding: 0.5em;
+            border-radius: 10px;
+        }
+    }
+}
+
+.picture-controls {
+    width: 60%;
+    display: flex;
+    background-color: rgb(44, 62, 80);
+    border-radius: 5px;
+    flex-wrap: wrap;
+    margin: 0 0 2em;
+
+    > p {
+        width: 100%;
+        margin: 0.75em 0 0 1.5em;
+        color: #bca9e1;
+    }
+}
+
+.bttn {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #3498db;
+    border-radius: 0.6em;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+    transition: all 150ms ease-in-out;
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        outline: 0;
+        box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+    }
+}

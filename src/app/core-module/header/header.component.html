@@ -1,0 +1,24 @@
+<header>
+    <div class="header-one">
+        <div class="img-container">
+            <img src="https://cdn0.iconfinder.com/data/icons/thin-photography/57/thin-363_photo_image_album-512.png" alt="">
+        </div>
+        <h1>Gallery Online</h1>
+    </div>
+    <nav>
+        <ul >
+            <li><a routerLink="/home">Home page</a></li>
+            <li><a href="#">About</a></li>
+            <li *ngIf="!isLogged"><a routerLink="/login">Login</a></li>
+            <li *ngIf="!isLogged"><a routerLink="/register">Register</a></li>
+            <li *ngIf="isLogged"><a routerLink="/otherImages">Browse images</a></li>
+            <li *ngIf="isLogged"><a routerLink="/addImage">Add new image</a></li>
+            <li *ngIf="isLogged"><a routerLink="/myGallery">My gallery</a></li>
+            <li *ngIf="isLogged"><a href="#" (click)="logoutHandler()">Log out</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<!-- TO DO: use the log in and log out handlers to show different items depending of the status of the user -->
+<!-- the boolean name is isLogged; combine with *ngIf -->
