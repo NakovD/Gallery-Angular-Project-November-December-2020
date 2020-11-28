@@ -1,0 +1,28 @@
+<div class="add-image-container">
+    <div class="add-image-form">
+        <form action="" autocomplete="off">
+            <h3>Add your image</h3>
+            <label for="imgURL">Image Link</label>
+            <input type="text" id="imgURL">
+            <p>or pick from your computer</p>
+            <button (click)="onOpen($event)" class="btn">Upload your own</button>
+            <label for="private">Private
+                <input type="checkbox" id="private">
+                <i class="fas fa-exclamation-circle">
+                    <div class="note">If you set the picture to be private, other users wont be able to view it or like
+                        it. It will be only for you.</div>
+                </i>
+            </label>
+            <label for="tags">Tags</label>
+            <input type="text" id="tags">
+            <label for="description">Description</label>
+            <textarea id="description"></textarea>
+            <button class="btn fifth add-image">Add your image?</button>
+        </form>
+        <div class="img-container-preview">
+            <p>Here you can see a preview of your image after you upload it:</p>
+            <img src="https://shahpourpouyan.com/wp-content/uploads/2018/10/orionthemes-placeholder-image-1.png"
+                alt="img-preview">
+        </div>
+    </div>
+</div>

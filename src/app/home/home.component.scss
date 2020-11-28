@@ -1,0 +1,42 @@
+.home-container {
+    background-image: url('https://www.pandasecurity.com/en/mediacenter/src/uploads/2018/05/pandasecurity-private-browsing-1100x825.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+h1 {
+    padding: 2em 3em 8em;
+    color: rgb(223,40,4);
+}
+
+
+p {
+    padding: 1em;
+    background-color: rgb(255,221,74);
+}
+
+
+.perks-container {
+    display: flex;
+    margin-left: 3em;
+    padding-bottom: 5em;
+    width: 80%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    > p:last-child {
+        margin-top: 1em;
+        width: 46%;
+        display: flex;
+        justify-content: space-between;
+
+        & .here {
+            color: rgb(223,40,4);
+        }
+    }
+
+}
+
+i {
+    padding: 0 1em;
+}
