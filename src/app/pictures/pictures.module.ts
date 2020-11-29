@@ -7,6 +7,7 @@ import { OtherImagesComponent } from './other-images/other-images.component';
 import { RandomImageComponent } from './random-image/random-image.component';
 import { EditPictureComponent } from './edit-picture/edit-picture.component';
 import { AddPictureComponent } from './add-picture/add-picture.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AddPictureComponent } from './add-picture/add-picture.component';
   imports: [
     CommonModule,
     PicturesRouterModule,
+    FormsModule
   ],
 
   exports: [

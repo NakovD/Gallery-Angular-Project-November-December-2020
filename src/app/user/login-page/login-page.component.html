@@ -4,22 +4,26 @@
             <h1>Sign In</h1>
             <p>Welcome back! Just put your name and password!</p>
         </div>
-        <form class="reg-form" action="">
-            <label for="username">Username: <i class="fas fa-exclamation-circle">
-                    <div class="message">Please insert valid username!</div>
+        <form class="reg-form" #f="ngForm" (ngSubmit)="loginHandler(f.value)">
+            <label for="email">Email: 
+                <i *ngIf="email.touched && email.errors?.email" class="fas fa-exclamation-circle">
+                    <div class="message">Please insert valid email!</div>
+                </i>
+                <i *ngIf="email.touched && email.errors?.required" class="fas fa-exclamation-circle">
+                    <div class="message">Email is required!</div>
                 </i>
             </label>
-            <input type="text" id="username" name="username">
-            <label for="password">Password: <i class="fas fa-exclamation-circle">
+            <input type="text" id="email" name="email" ngModel #email="ngModel" required>
+            <label for="password">Password: 
+                <i *ngIf="password.touched && password.errors?.required" class="fas fa-exclamation-circle">
+                    <div class="message">Please insert a password!</div>
+                </i>
+                <i *ngIf="password.touched && password.errors?.minlength" class="fas fa-exclamation-circle">
                     <div class="message">Password must be at least 6 characters long!</div>
                 </i>
             </label>
-            <input type="password" id="password" name="password">
-            <label for="repeatPass">Repeat your password: <i class="fas fa-exclamation-circle">
-                    <div class="message">Password must match!</div>
-                </i>
-            </label>
-            <button>Sign In</button>
+            <input type="password" id="password" name="password" ngModel #password="ngModel" minlength="6" required>
+            <button [disabled]="f.invalid">Sign In</button>
         </form>
     </div>
 </div>

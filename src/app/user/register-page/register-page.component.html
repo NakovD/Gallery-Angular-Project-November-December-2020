@@ -4,28 +4,41 @@
             <h1>Sign Up</h1>
             <p>Want to sign up? Fill this form!</p>
         </div>
-        <form class="reg-form" action="">
-            <label for="username">Username: <i class="fas fa-exclamation-circle">
+        <form class="reg-form" #f="ngForm" (ngSubmit)="registerHandler(f.value)">
+            <label for="username">Email: 
+                <i *ngIf="email.touched && email.errors?.required" class="fas fa-exclamation-circle">
                     <div class="message">Please insert valid username!</div>
                 </i>
             </label>
-            <input type="text" id="username" name="username">
-            <label for="password">Password: <i class="fas fa-exclamation-circle">
+            <input type="text" id="email" name="email" #email="ngModel" required ngModel>
+            <label for="password">Password: 
+                <i *ngIf="password.touched && password.errors?.minlength" class="fas fa-exclamation-circle">
                     <div class="message">Password must be at least 6 characters long!</div>
                 </i>
-            </label>
-            <input type="password" id="password" name="password">
-            <label for="repeatPass">Repeat your password: <i class="fas fa-exclamation-circle">
-                    <div class="message">Password must match!</div>
+                <i *ngIf="password.touched && password.errors?.required" class="fas fa-exclamation-circle">
+                    <div class="message">Please insert password!</div>
                 </i>
             </label>
-            <input type="password" name="repeatPass" id="repeatPass">
-            <input type="checkbox" name="terms" id="terms">
-            <label for="terms">I accept the terms of use <i class="fas fa-exclamation-circle">
+            <input type="password" id="password" name="password" #password="ngModel" ngModel minlength="6" required>
+            <label for="repeatPass">Repeat your password: 
+                <i *ngIf="repeatPass.touched && repeatPass.errors?.minlength" class="fas fa-exclamation-circle">
+                    <div class="message">Repeat password must be at least 6 characters long!</div>
+                </i>
+                <i *ngIf="repeatPass.touched && repeatPass.errors?.required" class="fas fa-exclamation-circle">
+                    <div class="message">Repeat password is required!</div>
+                </i>
+                <i *ngIf="passNotMatch" class="fas fa-exclamation-circle">
+                    <div class="message">Passwords must match!</div>
+                </i>
+            </label>
+            <input type="password" name="repeatPass" id="repeatPass" #repeatPass="ngModel" ngModel required minlength="6">
+            <input type="checkbox" name="terms" id="terms" #terms="ngModel" ngModel required>
+            <label for="terms">I accept the terms of use 
+                <i *ngIf="terms.touched && terms.errors?.required" class="fas fa-exclamation-circle">
                     <div class="message">Please, accept our terms!</div>
                 </i>
             </label>
-            <button>Sign Up</button>
+            <button [disabled]="f.invalid">Sign Up</button>
         </form>
     </div>
 </div>

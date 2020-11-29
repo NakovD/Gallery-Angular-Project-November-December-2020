@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, ViewChild } from '@angular/core';
+import { NgForm, NgModel } from '@angular/forms';
 import { CloudinaryWidgetManager } from 'ngx-cloudinary-upload-widget';
 
 @Component({
@@ -7,13 +8,18 @@ import { CloudinaryWidgetManager } from 'ngx-cloudinary-upload-widget';
   styleUrls: ['./add-picture.component.scss']
 })
 
-export class AddPictureComponent implements OnInit {
+export class AddPictureComponent implements OnChanges {
 
-  constructor(private manager: CloudinaryWidgetManager) {
+  addedLink = '';
+
+  @ViewChild('f') form: NgForm;
+
+  constructor(
+    private manager: CloudinaryWidgetManager) {
   }
 
-  ngOnInit(): void {
-
+  ngOnChanges() {
+    // console.dir(this.form);
   }
 
   onOpen(event: Event): void {
@@ -21,11 +27,19 @@ export class AddPictureComponent implements OnInit {
     this.manager.open({ uploadPreset: 'ekeew3n2' }).subscribe((resp) => {
       if (resp.event === 'success') {
         console.log(resp.info.secure_url);
+        var currentData = this.form.value;
+        currentData.imgURL = resp.info.secure_url;
+        this.form.setValue(currentData);
+        this.addedLink = resp.info.secure_url;
       }
     }, (err) => {
       console.log('err', err);
     }, () => {
       console.log('complete');
     });
+  }
+
+  submitHandler(formValue): void {
+    console.log(formValue); 
   }
 }
