@@ -26,6 +26,10 @@
             background-color: rgba(#fff, 0.3);
         }
 
+        > p {
+            text-align: center;
+        }
+
         > input,
         textarea {
             padding: 0.5em;
@@ -41,6 +45,21 @@
         > label, p {
             background-color: transparent;
             margin: 0 auto;
+        }
+
+        > label {
+
+            > p {
+                color: rgba(#ad0000, 0.7);
+                display: inline-block;
+                font-size: .75rem;
+
+                > span {
+                    background-color: royalblue;
+                    margin-right: .1em;
+                    border-radius: 5px;
+                }
+            }
         }
 
         & label[for="private"] {
@@ -87,7 +106,6 @@
         width: 100%;
         max-height: 600px;
         border-radius: 20px;
-        opacity: 0.5;
     }
 
     & p {
@@ -153,4 +171,9 @@
             width: 110%;
         }
     }
+}
+
+
+.show-ib {
+    display: inline-block;
 }

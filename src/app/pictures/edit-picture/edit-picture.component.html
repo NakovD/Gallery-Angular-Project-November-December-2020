@@ -1,1 +1,36 @@
-<p>edit-picture works!</p>
+<div class="add-image-container">
+    <div class="add-image-form">
+        <form autocomplete="off" #f="ngForm" (ngSubmit)="submitHandler(f.value)">
+            <h3>Edit your image</h3>
+            <label for="imgURL">Image Link
+                <p *ngIf="imgURL.touched && imgURL.errors?.required">This field is required!</p>
+                <p *ngIf="imgURL.touched && imgURL.errors?.pattern">Please insert valid link!</p></label>
+            <input type="text" id="imgURL" name="imgURL" disabled ngModel #imgURL="ngModel" required pattern="^http:\/\/(.+)|https:\/\/(.+)">
+            <button (click)="onOpen($event)" class="btn">Upload your image or add link</button>
+            <label for="private">Private
+                <input type="checkbox" id="private" ngModel name="private" #private="ngModel">
+                <i class="fas fa-exclamation-circle">
+                    <div class="note">If you set the picture to be private, other users wont be able to view it or like
+                        it. It will be only for you.</div>
+                </i>
+            </label>
+            <label for="tags">Tags
+                <p *ngIf="tags.touched && tags.errors?.required">Please insert at least one tag!</p>
+                <p *ngIf="tags.touched && tags.errors?.pattern">Please put your tags like this: <span>tag</span><span>, tag</span><span>, tag</span></p>
+            </label>
+            <input type="text" id="tags" name="tags" ngModel #tags="ngModel" required pattern=".+,?.+"> 
+            <label for="description">Description
+                <p *ngIf="description.touched && description.errors?.required">Please insert short description!</p>
+                <p *ngIf="description.touched && description.errors?.minlength">Description must be at least 10 characters long!</p>
+            </label>
+            <textarea name="description" #description="ngModel" ngModel id="description" required minlength="10"></textarea>
+            <button [disabled]="f.invalid" class="btn fifth add-image">Apply changes?</button>
+        </form>
+        <div class="img-container-preview">
+            <p>Here you can see a preview of your image after you upload it:</p>
+            <img *ngIf="addedLink" src="{{addedLink}}" alt="img-previeq">
+            <img *ngIf="!addedLink" src="https://shahpourpouyan.com/wp-content/uploads/2018/10/orionthemes-placeholder-image-1.png"
+                alt="img-preview">
+        </div>
+    </div>
+</div>
