@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  apiURL: 'https://softunicourses.firebaseio.com/'
+  firebase: {
+    apiKey: "AIzaSyDO7yPDvdZEq4BLZr53PIS76hDaR841XQI",
+    authDomain: "softunicourses.firebaseapp.com",
+    databaseURL: "https://softunicourses.firebaseio.com",
+    projectId: "softunicourses",
+    storageBucket: "softunicourses.appspot.com",
+    messagingSenderId: "389796598533",
+    appId: "1:389796598533:web:95de630cadb6bc86e99d6c",
+    measurementId: "G-VGEFEXX4GY"
+  }
 };
 
 /*

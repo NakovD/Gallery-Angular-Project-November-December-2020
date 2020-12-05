@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "softunicourses": {
+      "hosting": {
+        "Gallery-Project": [
+          "softunicourses"
+        ]
+      }
+    }
+  }
+}

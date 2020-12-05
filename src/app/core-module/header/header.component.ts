@@ -14,10 +14,6 @@ export class HeaderComponent {
 
   constructor(public userService: UserService) { }
 
-  loginHandler(): void {
-    this.userService.logIn();
-  }
-
   logoutHandler(): void {
     this.userService.logOut();
   }

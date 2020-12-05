@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register-page',
@@ -12,13 +13,25 @@ export class RegisterPageComponent implements OnInit {
 
   @ViewChild('f') form: NgForm;
 
-  constructor() { }
+  constructor(public userServ: UserService) { }
 
   ngOnInit(): void {
   }
 
   registerHandler(formValue) {
-    console.log(formValue);
+    var checkThePasswords = this.comparePasswords(formValue);
+    if (!checkThePasswords) {
+      this.passNotMatch = true;
+      return;
+    }
+    this.userServ.register(formValue);
+  }
+
+  comparePasswords(formValue): boolean {
+    if (formValue.password !== formValue.repeatPass) {
+      return false;
+    }
+    return true;
   }
 
 }
