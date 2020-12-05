@@ -1,6 +1,7 @@
-import { Component, OnChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { CloudinaryWidgetManager } from 'ngx-cloudinary-upload-widget';
+import { PictureService } from '../../services/picture.service';
 
 @Component({
   selector: 'app-add-picture',
@@ -8,18 +9,19 @@ import { CloudinaryWidgetManager } from 'ngx-cloudinary-upload-widget';
   styleUrls: ['./add-picture.component.scss']
 })
 
-export class AddPictureComponent implements OnChanges {
+export class AddPictureComponent implements OnInit {
 
   addedLink = '';
 
   @ViewChild('f') form: NgForm;
 
   constructor(
-    private manager: CloudinaryWidgetManager) {
+    private manager: CloudinaryWidgetManager,
+    private picService: PictureService) {
   }
 
-  ngOnChanges() {
-    // console.dir(this.form);
+  ngOnInit() {
+    // console.log(this.picService.saveItem());
   }
 
   onOpen(event: Event): void {
@@ -40,6 +42,14 @@ export class AddPictureComponent implements OnChanges {
   }
 
   submitHandler(formValue): void {
-    console.log(formValue); 
+    formValue.private = !!formValue.private;
+    formValue.creator = 'Dido';
+    formValue.likes = 0;
+    formValue.views = 0;
+    if (formValue.private) {
+      this.picService.saveItem('private', formValue);
+      return;
+    }
+    this.picService.saveItem('nonPrivate', formValue);
   }
 }

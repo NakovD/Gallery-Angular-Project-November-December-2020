@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { PicturesModule } from './pictures/pictures.module';
 import { AuthGuard } from './core-module/guards/auth.guard';
 import { NgxCloudinaryWidgetModule } from 'ngx-cloudinary-upload-widget';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { NgxCloudinaryWidgetModule } from 'ngx-cloudinary-upload-widget';
       {
         cloudName: "dido98cloudinary"
       }
-    )
+    ),
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
     AuthGuard,

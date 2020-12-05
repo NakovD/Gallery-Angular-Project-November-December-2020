@@ -121,8 +121,13 @@
               "devServerTarget": "Gallery-Project:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "Gallery-Project"
 }
